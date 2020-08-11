@@ -17,7 +17,6 @@ rollBtn.addEventListener("click", function () {
   if (player1Turn) {
     player1Score += randomNumber;
     player1Scoreboard.textContent = player1Score;
-
     player1Dice.textContent = randomNumber;
     player1Dice.classList.remove("active");
     player2Dice.classList.add("active");
@@ -31,10 +30,35 @@ rollBtn.addEventListener("click", function () {
     message.textContent = "Player 1 turn";
   }
 
+  if (player1Score >= 20) {
+    message.textContent = "Player 1 has won! 🥳";
+    rollBtn.style.display = "none";
+    resetBtn.style.display = "block";
+  } else if (player2Score >= 20) {
+    message.textContent = "Player 2 has won! 🎉";
+    rollBtn.style.display = "none";
+    resetBtn.style.display = "block";
+  }
+
   // switch player
   if (player1Turn) {
     player1Turn = false;
   } else {
     player1Turn = true;
   }
+
+  resetBtn.addEventListener("click", function () {
+    message.textContent = "Player 1 turn";
+    player1Scoreboard.textContent = 0;
+    player2Scoreboard.textContent = 0;
+    player1Dice.textContent = "-";
+    player2Dice.textContent = "-";
+    player1Score = 0;
+    player2Score = 0;
+    player1Turn = true;
+    resetBtn.style.display = "none";
+    rollBtn.style.display = "block";
+    player1Dice.classList.remove("active");
+    player2Dice.classList.add("active");
+  });
 });

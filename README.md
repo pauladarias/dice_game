@@ -11,7 +11,7 @@
 5. Display dice number
 6. "Active" class to show which player turn it is
 7. Update message
-8. Update the socres and display the socres in their scoreboards
+8. Update the socres and display the scores in their scoreboards
 9. Check if player has won (change message)
 10. hide the roll dice button and show reset button
 11. reset the game (event listener)
